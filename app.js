@@ -37,13 +37,14 @@ var createNewTaskElement=function(taskString){
 
     //Each elements, needs appending
     checkBox.type="checkbox";
+    checkBox.classList.add("check");
     editInput.type="text";
-    editInput.className="edit-tasks__input";
+    editInput.className="edit-tasks__input tasks__input";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="btn__edit";
+    editButton.className="btn__edit btn";
 
-    deleteButton.className="btn__remove";
+    deleteButton.className="btn__remove btn";
     deleteButtonImg.src='./remove.svg';
     deleteButton.appendChild(deleteButtonImg);
 
@@ -64,6 +65,7 @@ var addTask=function(){
     //Create a new list item with the text from the #new-task:
     if (!taskInput.value) return;
     var listItem=createNewTaskElement(taskInput.value);
+    listItem.classList.add("tasks__item")
 
     //Append listItem to incompleteTaskHolder
     incompleteTaskHolder.appendChild(listItem);
